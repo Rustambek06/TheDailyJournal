@@ -14,17 +14,25 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String title;
-
-    @Column(columnDefinition = "TEXT")
     private String content;
 
-    private String author;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     private LocalDateTime createdAt = LocalDateTime.now();
+    
+    public News() {}
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    public News(String title, String content, Category category, User user) {
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.user = user;
+    }
 }

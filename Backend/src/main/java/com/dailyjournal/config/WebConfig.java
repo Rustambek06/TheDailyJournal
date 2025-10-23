@@ -1,4 +1,4 @@
-package main.java.com.dailyjournal.config;
+package com.dailyjournal.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
