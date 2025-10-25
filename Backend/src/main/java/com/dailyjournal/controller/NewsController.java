@@ -2,6 +2,8 @@ package com.dailyjournal.controller;
 
 import com.dailyjournal.entity.News;
 import com.dailyjournal.service.NewsService;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -21,8 +23,9 @@ public class NewsController {
     }
 
     @PostMapping
-    public News create(@RequestBody News news) {
-        return newsService.save(news);
+    public ResponseEntity<News> create(@RequestBody News news) {
+        News saved = newsService.save(news);
+        return ResponseEntity.ok(saved);
     }
 
     @DeleteMapping("/{id}")
