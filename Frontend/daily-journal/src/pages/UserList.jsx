@@ -7,14 +7,14 @@ function UserList() {
 
     useEffect (() => {
         loadUsers();
-    }, []);
+    }, [users]);
 
     const loadUsers = async () => {
         try {
             const data = await UserService.getAll();
             setUsers(data);
         } catch (err) {
-            console.error("Ошибка загрузки пользователей:", error);
+            console.error("Ошибка загрузки пользователей:", err);
         }
     };
 
@@ -49,14 +49,14 @@ function UserList() {
                 <button type="submit">Добавить</button>
             </form>
         
-        <ul>
-            {users.map((u) => (
-                <li key={u.id}>
-                    {u.username} ({u.email})
-                    <button onClick={() => handleDelete(u.id)}>Удалить</button>
-                </li>
-            ))}
-        </ul>
+            <ul>
+                {users.map((u) => (
+                    <li key={u.id}>
+                        {u.username} ({u.email})
+                        <button onClick={() => handleDelete(u.id)}>Удалить</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
