@@ -7,7 +7,7 @@ function UserList() {
 
     useEffect (() => {
         loadUsers();
-    }, [users]);
+    }, []);
 
     const loadUsers = async () => {
         try {

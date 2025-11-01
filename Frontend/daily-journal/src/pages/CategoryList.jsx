@@ -7,7 +7,7 @@ function CategoryList() {
 
     useEffect(() => {
         loadCategories();
-    }, [categories]);
+    }, []);
 
     const loadCategories = async () => {
         try {
