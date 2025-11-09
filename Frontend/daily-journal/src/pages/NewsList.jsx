@@ -60,8 +60,8 @@ function NewsList() {
       await NewsService.create({
         title: newNews.title,
         content: newNews.content,
-        category: {id: Number(newNews.categoryId)},
-        user: {id: Number(newNews.userId)},
+        categoryId: Number(newNews.categoryId),
+        userId: Number(newNews.userId),
       });
       setNewNews({ title: "", content: "", categoryId: "", userId: "" });
       loadNews();
