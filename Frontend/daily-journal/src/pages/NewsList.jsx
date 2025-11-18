@@ -147,9 +147,9 @@ function NewsList() {
             <h3>{item.title}</h3>
             <p>{item.content}</p>
             <p>
-              <strong>Категория:</strong> {item.category?.name || "—"}  
+              <strong>Категория:</strong> {item.categoryName || "—"}  
               {" | "}
-              <strong>Автор:</strong> {item.user?.username || "—"}  
+              <strong>Автор:</strong> {item.username || "—"}  
               {" | "}
               <strong>Дата:</strong> {new Date(item.createdAt).toLocaleString()}
             </p>
