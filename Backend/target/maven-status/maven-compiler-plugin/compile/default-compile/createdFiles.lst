@@ -2,12 +2,15 @@ com\dailyjournal\service\CategoryService.class
 com\dailyjournal\entity\User.class
 com\dailyjournal\config\WebConfig.class
 com\dailyjournal\exception\ResourceNotFoundException.class
+com\dailyjournal\mapper\CategoryMapper.class
 com\dailyjournal\repository\UserRepository.class
 com\dailyjournal\config\WebConfig$1.class
+com\dailyjournal\dto\CategoryResponse.class
 com\dailyjournal\dto\NewsDTO.class
 com\dailyjournal\repository\NewsRepository.class
 com\dailyjournal\dto\NewsResponse.class
 com\dailyjournal\service\NewsService.class
+com\dailyjournal\dto\CategoryRequest.class
 com\dailyjournal\repository\CategoryRepository.class
 com\dailyjournal\entity\Category.class
 com\dailyjournal\entity\News.class

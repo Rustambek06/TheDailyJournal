@@ -1,7 +1,9 @@
 package com.dailyjournal.controller;
 
-import com.dailyjournal.entity.Category;
+import com.dailyjournal.dto.CategoryRequest;
+import com.dailyjournal.dto.CategoryResponse;
 import com.dailyjournal.service.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -16,13 +18,13 @@ public class CategoryController {
     }
 
     @GetMapping
-    public List<Category> getAll() {
+    public List<CategoryResponse> getAll() {
         return categoryService.getAll();
     }
 
     @PostMapping
-    public Category create(@RequestBody Category category) {
-        return categoryService.save(category);
+    public CategoryResponse create(@Valid @RequestBody CategoryRequest request) {
+        return categoryService.save(request);
     }
 
     @DeleteMapping("/{id}")
