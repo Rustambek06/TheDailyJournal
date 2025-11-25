@@ -1,24 +1,38 @@
 package com.dailyjournal.service;
 
+import com.dailyjournal.dto.UserRequest;
+import com.dailyjournal.dto.UserResponse;
 import com.dailyjournal.entity.User;
+import com.dailyjournal.mapper.UserMapper;
 import com.dailyjournal.repository.UserRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
+        this.userMapper = userMapper;
     }
 
-    public List<User> getAll() {
-        return userRepository.findAll();
+    public List<UserResponse> getAll() {
+        List<User> users = userRepository.findAll();
+
+        return users.stream()
+                .map(userMapper::toResponse)
+                .collect(Collectors.toList());
     }
 
-    public User save(User user) {
-        return userRepository.save(user);
+    public UserResponse save(UserRequest request) {
+        User userToSave = userMapper.toEntity(request);
+        User savedUser = userRepository.save(userToSave);
+        
+        return userMapper.toResponse(savedUser);
     }
 
     public void delete(Long id) {

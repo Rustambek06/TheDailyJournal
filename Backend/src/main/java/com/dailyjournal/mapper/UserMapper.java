@@ -16,7 +16,7 @@ public class UserMapper {
         return user;
     }
 
-    public UserResponse tResponse(User user) {
+    public UserResponse toResponse(User user) {
         UserResponse response = new UserResponse();
         response.setId(user.getId());
         response.setUsername(user.getUsername());

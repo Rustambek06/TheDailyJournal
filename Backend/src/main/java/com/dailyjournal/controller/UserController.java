@@ -1,7 +1,9 @@
 package com.dailyjournal.controller;
 
-import com.dailyjournal.entity.User;
+import com.dailyjournal.dto.UserRequest;
+import com.dailyjournal.dto.UserResponse;
 import com.dailyjournal.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -16,13 +18,13 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAll() {
+    public List<UserResponse> getAll() {
         return userService.getAll();
     }
 
     @PostMapping
-    public User create(@RequestBody User user) {
-        return userService.save(user);
+    public UserResponse create(@Valid @RequestBody UserRequest request) {
+        return userService.save(request);
     }
 
     @DeleteMapping("/{id}")

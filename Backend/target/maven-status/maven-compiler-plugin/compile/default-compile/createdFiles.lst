@@ -1,6 +1,7 @@
 com\dailyjournal\service\CategoryService.class
 com\dailyjournal\entity\User.class
 com\dailyjournal\config\WebConfig.class
+com\dailyjournal\mapper\UserMapper.class
 com\dailyjournal\exception\ResourceNotFoundException.class
 com\dailyjournal\mapper\CategoryMapper.class
 com\dailyjournal\repository\UserRepository.class
@@ -18,8 +19,10 @@ com\dailyjournal\TheDailyJournalApplication.class
 com\dailyjournal\exception\GlobalExceptionHandler.class
 com\dailyjournal\dto\NewsRequest.class
 com\dailyjournal\dto\UserDTO.class
+com\dailyjournal\dto\UserRequest.class
 com\dailyjournal\dto\CategoryDTO.class
 com\dailyjournal\controller\NewsController.class
+com\dailyjournal\dto\UserResponse.class
 com\dailyjournal\service\UserService.class
 com\dailyjournal\controller\UserController.class
 com\dailyjournal\controller\CategoryController.class
