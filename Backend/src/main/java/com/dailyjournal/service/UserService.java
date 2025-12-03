@@ -5,12 +5,16 @@ import com.dailyjournal.dto.UserResponse;
 import com.dailyjournal.entity.User;
 import com.dailyjournal.mapper.UserMapper;
 import com.dailyjournal.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;

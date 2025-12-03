@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class NewsController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('CREATOR', 'ADMIN')")
     public ResponseEntity<NewsResponse> create(
         @Valid
         @RequestBody
@@ -37,6 +39,7 @@ public class NewsController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole('CREATOR', 'ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         newsService.delete(id);
         return ResponseEntity.noContent().build();

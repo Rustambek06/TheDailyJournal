@@ -4,6 +4,8 @@ import com.dailyjournal.dto.UserRequest;
 import com.dailyjournal.dto.UserResponse;
 import com.dailyjournal.service.UserService;
 import jakarta.validation.Valid;
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -18,11 +20,13 @@ public class UserController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<UserResponse> getAll() {
         return userService.getAll();
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public UserResponse create(@Valid @RequestBody UserRequest request) {
         return userService.save(request);
     }
